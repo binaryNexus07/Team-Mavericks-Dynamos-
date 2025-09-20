@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patiala Raas Garba - A Three-Day Dandiya Festival</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- The "defer" attribute is now correctly added to fix the navigation bug -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body x-data="{ activePage: 'home', activePass: 'premium' }">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" @click.prevent="activePage = 'home'" class="font-teko text-4xl font-bold tracking-wider text-white">PatialaRaas</a>
+            <div class="hidden md:flex items-center space-x-8 text-lg">
+                <a @click.prevent="activePage = 'home'" href="#" :class="{'text-orange-400': activePage === 'home'}" class="text-white hover:text-orange-400 transition-colors duration-300">Home</a>
+                <a @click.prevent="activePage = 'artists'" href="#" :class="{'text-orange-400': activePage === 'artists'}" class="text-white hover:text-orange-400 transition-colors duration-300">Artists</a>
+                <a @click.prevent="activePage = 'venue'" href="#" :class="{'text-orange-400': activePage === 'venue'}" class="text-white hover:text-orange-400 transition-colors duration-300">Venue & Passes</a>
+                <a @click.prevent="activePage = 'about'" href="#" :class="{'text-orange-400': activePage === 'about'}" class="text-white hover:text-orange-400 transition-colors duration-300">About Us</a>
+            </div>
+            <a @click.prevent="activePage = 'register'" href="#" class="hidden md:block btn-gradient text-white font-bold py-2 px-6 rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300">
+                Register Now
+            </a>
+            <button @click="activePage = 'register'" class="md:hidden text-white">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page Section -->
+        <section x-show="activePage === 'home'" x-transition.opacity.duration.500ms>
+            <!-- Hero Section -->
+            <div class="relative min-h-screen flex items-center justify-center text-white bg-cover bg-center bg-fixed" style="background-image: linear-gradient(to top, rgba(17, 24, 39, 0.95) 10%, rgba(29, 19, 54, 0.6) 50%, rgba(17, 24, 39, 0.95) 90%), url('https://images.unsplash.com/photo-1664601440260-6e9f546a1a45?q=80&w=2070&auto=format&fit=crop');">
+                <div class="text-center z-10 px-4">
+                    <h1 class="font-teko text-7xl md:text-9xl font-bold tracking-widest text-glow">PATIALA RAAS</h1>
+                    <p class="text-2xl md:text-4xl text-orange-300 font-teko tracking-wider mb-4">The Biggest Garba & Dandiya Night of the Year</p>
+                    <p class="max-w-2xl mx-auto text-lg text-gray-300 mb-8">Three nights of vibrant music, electrifying dance, and unforgettable memories. Join us for a cultural extravaganza organized by BeFirst Events!</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a @click.prevent="activePage = 'register'" href="#" class="btn-gradient text-white font-bold py-3 px-10 rounded-lg text-xl hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300">Book Your Pass</a>
+                         <a @click.prevent="activePage = 'artists'" href="#" class="bg-gray-700/50 border border-orange-400 text-white font-bold py-3 px-10 rounded-lg text-xl hover:bg-gray-700 transition-all duration-300">Meet The Artists</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Section -->
+            <div class="py-20 bg-gray-900 bg-pattern">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-center font-teko text-6xl font-bold mb-2 text-gradient">Event Highlights</h2>
+                    <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Experience a festival like no other, with world-class arrangements and non-stop entertainment.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature Card -->
+                        <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                           <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="m12 9 4.5 8H7.5L12 9Z"/></svg>
+                           </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Expansive Garba Ground</h3>
+                           <p class="text-gray-400">A massive, sectionised ground ensuring ample space for everyone to dance freely and safely.</p>
+                        </div>
+                        <!-- Feature Card -->
+                        <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                             <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                             </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Star Singer Performances</h3>
+                           <p class="text-gray-400">Get mesmerized by live performances from renowned Gujarati folk singers every night.</p>
+                        </div>
+                        <!-- Feature Card -->
+                         <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                             <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18h.01"/><path d="M16 18h.01"/><path d="M8 18h.01"/></svg>
+                             </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Authentic Food Stalls</h3>
+                           <p class="text-gray-400">Savor delicious Gujarati delicacies and a wide range of cuisines at our vibrant food court.</p>
+                        </div>
+                        <!-- Feature Card -->
+                         <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                             <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><shield class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></shield></svg>
+                             </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Top-Notch Security</h3>
+                           <p class="text-gray-400">Your safety is our priority. We have a well-managed security team to ensure a worry-free experience.</p>
+                        </div>
+                        <!-- Feature Card -->
+                        <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                             <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M12 2a10 10 0 1 0 10 10H12V2Z"/><path d="M12 12a10 10 0 0 0 10 10V12H12Z"/></svg>
+                             </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Easy Venue Accessibility</h3>
+                           <p class="text-gray-400">Located at a prime location in Patiala with ample parking and easy access via public transport.</p>
+                        </div>
+                        <!-- Feature Card -->
+                         <div class="highlight-card bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                             <div class="w-16 h-16 mb-4 btn-gradient rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M12 22a6 6 0 0 0 6-6V2l-5 5-5-5v14a6 6 0 0 0 6 6Z"/><path d="M12 12a6 6 0 0 0 6-6h-6v6Z"/></svg>
+                             </div>
+                           <h3 class="text-2xl font-bold text-white mb-2">Emergency Services</h3>
+                           <p class="text-gray-400">Medical teams and emergency services will be on standby throughout the event.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Page Section -->
+        <section x-show="activePage === 'artists'" x-transition.opacity.duration.500ms class="py-20 bg-gray-900 bg-pattern">
+             <div class="container mx-auto px-6">
+                <h2 class="text-center font-teko text-6xl font-bold mb-2 text-gradient">Meet Our Star Performers</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Prepare to be enchanted by the soulful voices of Gujarat's most celebrated artists, live on stage!</p>
+                <div class="space-y-16">
+                    <!-- Artist 1: Image Left -->
+                    <div class="artist-card flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+                        <img src="https://i.scdn.co/image/ab6761610000e5eb135e390423b0894586d16a50" alt="Falguni Pathak" class="w-48 h-48 rounded-full object-cover border-4 border-orange-500 shadow-lg flex-shrink-0">
+                        <div class="text-center md:text-left">
+                            <p class="text-orange-400 text-lg font-semibold">Day 1: The Queen of Dandiya</p>
+                            <h3 class="font-teko text-5xl font-bold text-white">Falguni Pathak</h3>
+                            <p class="text-gray-300 mt-2 max-w-2xl">The undisputed queen of Garba, Falguni Pathak, will kickstart the festival with her iconic voice and chart-topping hits. Get ready to dance the night away to classics that have defined Navratri for generations.</p>
+                        </div>
+                    </div>
+                    <!-- Artist 2: Image Right -->
+                    <div class="artist-card flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+                        <img src="https://www.masala.com/cloud/2021/09/14/Kirtidan-Gadhvi-2-1.jpg-2.jpg" alt="Kirtidan Gadhvi" class="w-48 h-48 rounded-full object-cover border-4 border-orange-500 shadow-lg flex-shrink-0">
+                        <div class="text-center md:text-right">
+                             <p class="text-orange-400 text-lg font-semibold">Day 2: The Folk Maestro</p>
+                            <h3 class="font-teko text-5xl font-bold text-white">Kirtidan Gadhvi</h3>
+                            <p class="text-gray-300 mt-2 max-w-2xl ml-auto">Experience the powerful and rustic voice of Kirtidan Gadhvi. Known for his energetic stage presence and mastery of folk music, he will bring an authentic and electrifying atmosphere to the second night of our festival.</p>
+                        </div>
+                    </div>
+                    <!-- Artist 3: Image Left -->
+                    <div class="artist-card flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+                        <img src="https://static.toiimg.com/thumb/msid-91187411,width-1280,height-720,resizemode-4/.jpg" alt="Kinjal Dave" class="w-48 h-48 rounded-full object-cover border-4 border-orange-500 shadow-lg flex-shrink-0">
+                        <div class="text-center md:text-left">
+                             <p class="text-orange-400 text-lg font-semibold">Day 3: The Digital Sensation</p>
+                            <h3 class="font-teko text-5xl font-bold text-white">Kinjal Dave</h3>
+                            <p class="text-gray-300 mt-2 max-w-2xl">Closing the festival with a bang is the youth icon, Kinjal Dave. Her peppy numbers and modern take on folk music are guaranteed to have you on your feet for a grand finale you won't forget.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Venue & Passes Section -->
+        <section x-show="activePage === 'venue'" x-transition.opacity.duration.500ms class="py-20 bg-gray-900 bg-pattern">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-center font-teko text-6xl font-bold mb-2 text-gradient">Venue & Passes</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Find us at the heart of Patiala. Choose the perfect pass for your ultimate Garba experience.</p>
+
+                <div class="grid lg:grid-cols-5 gap-8">
+                    <div class="lg:col-span-3">
+                         <h3 class="font-teko text-4xl font-bold text-white mb-4">Event Venue</h3>
+                         <div class="rounded-xl overflow-hidden border border-gray-700">
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55030.73147814757!2d76.3501255513672!3d30.339802900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391028ab5836516d%3A0x496c349d799e0325!2sPatiala%2C%2C%20India!5e0!3m2!1sen!2sus!4v1695123456789" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                         </div>
+                         <div class="mt-6 text-gray-300">
+                             <p class="text-xl font-bold text-white">Lehal Colony Ground, Patiala</p>
+                             <p>Centrally located and easily accessible, with dedicated zones for parking, food, and dancing. Gates open at 6:00 PM every evening.</p>
+                         </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <h3 class="font-teko text-4xl font-bold text-white mb-4">Choose Your Pass</h3>
+                        
+                        <div class="space-y-4">
+                            <!-- Regular Pass Button -->
+                            <button @click="activePass = 'regular'" 
+                                    :class="{
+                                        'border-orange-500 bg-gray-700/50': activePass === 'regular', 
+                                        'border-gray-700 bg-gray-800': activePass !== 'regular'
+                                    }" 
+                                    class="w-full text-left p-6 rounded-xl border-2 hover:border-orange-500 transition-all duration-300">
+                                <h4 class="text-2xl font-bold text-orange-400">Regular Pass</h4>
+                                <p class="text-3xl font-bold text-white my-2">₹499</p>
+                                <ul class="text-gray-400 space-y-1 list-disc list-inside text-sm">
+                                    <li>Access for one person on any single day</li>
+                                    <li>General ground access for Garba</li>
+                                    <li>Access to the food court area</li>
+                                </ul>
+                            </button>
+                    
+                            <!-- Premium Pass Button -->
+                            <button @click="activePass = 'premium'" 
+                                    :class="{
+                                        'border-orange-500 bg-gray-700/50': activePass === 'premium', 
+                                        'border-gray-700 bg-gray-800': activePass !== 'premium'
+                                    }"
+                                    class="w-full text-left p-6 rounded-xl border-2 hover:border-orange-500 transition-all duration-300 relative">
+                                <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+                                <h4 class="text-2xl font-bold text-orange-400">Premium Pass</h4>
+                                <p class="text-3xl font-bold text-white my-2">₹1299</p>
+                                <ul class="text-gray-400 space-y-1 list-disc list-inside text-sm">
+                                    <li>Access for one person for all 3 days</li>
+                                    <li>Priority entry to the venue</li>
+                                    <li>Designated premium dancing zone</li>
+                                    <li>1 complimentary refreshment coupon</li>
+                                </ul>
+                            </button>
+                    
+                            <!-- Executive Pass Button -->
+                            <button @click="activePass = 'executive'" 
+                                    :class="{
+                                        'border-orange-500 bg-gray-700/50': activePass === 'executive', 
+                                        'border-gray-700 bg-gray-800': activePass !== 'executive'
+                                    }"
+                                    class="w-full text-left p-6 rounded-xl border-2 hover:border-orange-500 transition-all duration-300">
+                                <h4 class="text-2xl font-bold text-orange-400">Executive Pass (Group of 4)</h4>
+                                <p class="text-3xl font-bold text-white my-2">₹4499</p>
+                                <ul class="text-gray-400 space-y-1 list-disc list-inside text-sm">
+                                    <li>VIP access for 4 people for all 3 days</li>
+                                    <li>Exclusive, dedicated VIP seating area</li>
+                                    <li>Unlimited refreshments & one food combo per person</li>
+                                    <li>Meet & Greet opportunity with artists (subject to availability)</li>
+                                </ul>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Registration Page Section -->
+        <section x-show="activePage === 'register'" x-transition.opacity.duration.500ms class="py-20 bg-gray-900 bg-pattern">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-center font-teko text-6xl font-bold mb-2 text-gradient">Book Your Tickets Now!</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Don't miss out on this spectacular celebration. Fill in your details to secure your spot.</p>
+                <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                            </div>
+                             <div class="md:col-span-2">
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                            </div>
+                             <div>
+                                <label for="pass-type" class="block text-sm font-medium text-gray-300 mb-2">Select Pass Type</label>
+                                <select id="pass-type" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                                    <option>Regular Pass - ₹499</option>
+                                    <option>Premium Pass - ₹1299</option>
+                                    <option>Executive Pass - ₹4499</option>
+                                </select>
+                            </div>
+                             <div>
+                                <label for="quantity" class="block text-sm font-medium text-gray-300 mb-2">Quantity</label>
+                                <input type="number" id="quantity" value="1" min="1" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                            </div>
+                             <div class="md:col-span-2">
+                                <button type="submit" class="w-full btn-gradient text-white font-bold py-3 px-6 rounded-lg text-lg hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300">Proceed to Payment</button>
+                             </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Us Section -->
+        <section x-show="activePage === 'about'" x-transition.opacity.duration.500ms class="py-20 bg-gray-900 bg-pattern">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-center font-teko text-6xl font-bold mb-2 text-gradient">About The Organizers</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Meet the team behind the magic and our invaluable partners.</p>
+                <div class="text-center max-w-4xl mx-auto">
+                    <h3 class="font-teko text-5xl font-bold text-white">BeFirst Event Organisers</h3>
+                    <p class="text-gray-300 mt-4 text-lg">At BeFirst, we believe in creating experiences that last a lifetime. With over a decade of experience in managing large-scale cultural events, our mission is to bring communities together through meticulously planned, safe, and vibrant festivals. Patiala Raas is our flagship event, born from a passion for celebrating our rich cultural heritage.</p>
+                </div>
+                
+                <div class="mt-20">
+                    <h3 class="text-center font-teko text-5xl font-bold text-white">Our Proud Sponsors</h3>
+                     <div class="mt-8 flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                        <img src="https://placehold.co/150x60/1f2937/a3a3a3?text=Sponsor+1" alt="Sponsor 1" class="h-12 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/150x60/1f2937/a3a3a3?text=Sponsor+2" alt="Sponsor 2" class="h-12 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/150x60/1f2937/a3a3a3?text=Sponsor+3" alt="Sponsor 3" class="h-12 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/150x60/1f2937/a3a3a3?text=Sponsor+4" alt="Sponsor 4" class="h-12 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/150x60/1f2937/a3a3a3?text=Sponsor+5" alt="Sponsor 5" class="h-12 opacity-60 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Patiala Raas | Organized by BeFirst Events | All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed for the Pixel Wizard competition at TechFest '25.</p>
+        </div>
+    </footer>
+
+    <!-- Link to your custom JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
+
